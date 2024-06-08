@@ -27,16 +27,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 13px;
+    gap: 5px;
 }
 
 .encabezadoLogin h1 {
-    font-size: 19px;
+    font-size: 24px;
     font-weight: 500;
 }
 
 .encabezadoLogin h5 {
-    color: rgba(0, 0, 0, 0.695);
+    color: rgba(0, 0, 0, 0.512);
 }
 
 .encabezadoLogin img {
