@@ -1,106 +1,73 @@
 import style from "./Home.module.css";
-import logo from "../../assets/logo_balineras.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
+import Card from "../../components/Card/Card";
 
 const Home = () => {
-  const userId = localStorage.getItem("idUser") || "default-user-id";
-  const [logedUser, setLogedUser] = useState("");
-  const users = useSelector((state) => state.users);
-  const [loading, setLoading] = useState(false);
-  const [showCrearUsuario, setShowCrearUsuario] = useState(false);
-  const [showLogOut, setShowLogOut] = useState(false);
-  const navigate = useNavigate();
-  const perfilNavRef = useRef(null);
-
-  useEffect(() => {
-    const user = users.find((us) => us.id === userId);
-
-    if (user) {
-      setLogedUser(user.name);
-
-      if (user.profile === "superadmin") {
-        setShowCrearUsuario(true);
-      } else {
-        setShowCrearUsuario(false);
-      }
-    } else {
-      setLogedUser("No Identificado");
-    }
-
-    const handleClickOutside = (event) => {
-      if (
-        perfilNavRef.current &&
-        !perfilNavRef.current.contains(event.target)
-      ) {
-        setShowLogOut(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [users, userId]);
-
-  const handleLogOut = () => {
-    localStorage.removeItem("idUser");
-
-    setShowLogOut(false);
-    setLogedUser("");
-    navigate("/");
-  };
+  const users = [
+    {
+      id: 2,
+      image:
+        "https://img.freepik.com/foto-gratis/joven-confiado_1098-20868.jpg",
+      description:
+        "Tech enthusiast and gadget reviewer. Bringing you the latest in technology.",
+      name: "Maria Gomez",
+      location: "San Francisco, USA",
+      followers: 30,
+      category: ["Tech", "Reviews", "Gadgets"],
+      handle: "mariagomez",
+      rating: 5,
+    },
+    {
+      id: 3,
+      image:
+        "https://us.123rf.com/450wm/lopolo/lopolo2011/lopolo201105637/158379434-retrato-de-hombre-europeo-aislado-sobre-fondo-blanco.jpg?ver=6",
+      description:
+        "Fitness coach and wellness advocate. Helping you live a healthier life.",
+      name: "Carlos Rodriguez",
+      location: "Buenos Aires, Argentina",
+      followers: 22,
+      category: ["Fitness", "Health", "Wellness"],
+      handle: "carlosrodriguez",
+      rating: 4,
+    },
+    {
+      id: 4,
+      image:
+        "https://us.123rf.com/450wm/sevalv/sevalv1806/sevalv180600296/103250851-retrato-de-primer-plano-de-un-tipo-europeo-amable-y-amable-que-sonr%C3%ADe-ampliamente-como-si-se.jpg?ver=6",
+      description:
+        "Fashion blogger and stylist. Inspiring you with the latest trends.",
+      name: "Ana Martinez",
+      location: "Paris, France",
+      followers: 18,
+      category: ["Fashion", "Style", "Beauty"],
+      handle: "anamartinez",
+      rating: 5,
+    },
+    {
+      id: 5,
+      image:
+        "https://us.123rf.com/450wm/sevalv/sevalv1803/sevalv180300533/97289773-retrato-de-hombre-gracioso-guapo-complacido-con-los-pu%C3%B1os-cerrados-en-la-boca-sonriendo-e.jpg?ver=6",
+      description:
+        "Photographer capturing the beauty of the world, one shot at a time.",
+      name: "Luis Fernandez",
+      location: "Tokyo, Japan",
+      followers: 25,
+      category: ["Photography", "Travel", "Nature"],
+      handle: "luisfernandez",
+      rating: 4,
+    },
+  ];
 
   return (
-    <div className={style.divContenedorHome}>
-      {loading ? (
-        <div className={style.spinnerContainerDiv}>
-          <Spinner />
-        </div>
-      ) : (
-        ""
-      )}
-      <h1>¡ Bienvenido !</h1>
-      <img src={logo} alt="logo" />
-      <div className={style.divOpcionesHome}>
-        <Link to="/Inventario">
-          <h3>Inventario</h3>
-        </Link>
-        <Link to="/Remisiones">
-          <h3>Remision</h3>
-        </Link>
-        <Link to="/Referencias">
-          <h3>Referencias</h3>
-        </Link>
-        <Link to="/clientes">
-          <h3>Clientes</h3>
-        </Link>
-        {showCrearUsuario ? (
-          <Link to="/crearUsuarios">
-            <h3>Crear Usuarios</h3>
-          </Link>
-        ) : (
-          ""
-        )}
-        <div className={style.PerfilNav} ref={perfilNavRef}>
-          <div
-            className={style.divIonIcon}
-            onClick={() => setShowLogOut(!showLogOut)}
-          >
-            <ion-icon name="person-circle-outline"></ion-icon>
-            <p>{logedUser}</p>
-          </div>
-          {showLogOut ? (
-            <div className={style.divLogOut}>
-              <button onClick={() => handleLogOut()}>Cerrar Sesión</button>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+    <div className={style.homeDiv}>
+      <div className={style.containercards}>
+        {users.map((user) => (
+          <Card key={user.id} {...user} />
+        ))}
       </div>
     </div>
   );

@@ -54,7 +54,9 @@ const Login = () => {
             </div>
           </div>
           <div className={style.buttonsDiv}>
-            <button className={style.loginButton}>Iniciar sesión</button>
+            <Link to="/Inicio">
+              <button className={style.loginButton}>Iniciar sesión</button>
+            </Link>
             <button className={style.googleLoginButton}>
               <img
                 src={logoGoogle}

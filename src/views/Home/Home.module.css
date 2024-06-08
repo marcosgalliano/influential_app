@@ -1,143 +1,15 @@
-.divContenedorHome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 50px;
+.homeDiv{
     min-height: 100vh;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    position: relative;
-}
-
-.divOpcionesHome {
-    background-color: #002B88;
-    display: flex;
-    width: 80%;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px;
-}
-
-.divOpcionesHome a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.divOpcionesHome a:hover {
-    border-bottom: 4px solid #FF0C1E;
-}
-
-.divOpcionesHome a h3 {
-    font-size: 19px;
-    transition: 0.4s;
-}
-
-.divOpcionesHome a h3:hover {
-    color: rgb(255, 255, 255);
-}
-
-.divInputSearch {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.divInputSearch ion-icon {
-    font-size: 20px;
-    color: white;
-    padding: 3px;
-    background-color: black;
-    border-radius: 50%;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-.divInputSearch ion-icon:hover {
-    font-size: 20px;
-    color: white;
-    padding: 3px;
-    background-color: #312682;
-    border-radius: 50%;
-    transition: 0.4s;
-    cursor: not-allowed;
-}
-
-.divInputSearch input {
-    background-color: black;
-    padding: 2px 5px 2px 9px;
-    color: white;
-    width: 230px;
-    font-size: 17px;
-    border: none;
-}
-
-.divInputSearch input::placeholder {
-    color: rgb(224, 224, 224);
-}
-
-.divIonIcon {
-    cursor: pointer;
-}
-
-.divIonIcon ion-icon {
-    font-size: 50px;
-    transition: 0.4s;
-}
-
-.divIonIcon p {
-    transition: 0.4s;
-}
-
-.divIonIcon:hover {
-    color: #ffffff;
-}
-
-.divIonIcon {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    padding: 20px 0px;
 }
 
-.disabledButton {
-    color: grey;
-    cursor: not-allowed;
-}
-
-.divRefreshDatos {
+.containercards{
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 40%;
-    justify-content: center;
-    align-items: center;
-}
-
-.spinnerContainerDiv {
-    position: absolute;
-    top: 50%;
-    left: 46%;
-    height: fit-content;
-}
-
-.PerfilNav{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-}
-
-.divLogOut{
-    position: absolute;
-    top: 100%;
-}
-
-.divLogOut button{
-    background-color: #312682;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px 5px 10px;
+    align-items: center;
+    gap: 25px;
+    padding: 0px 10px;
 }

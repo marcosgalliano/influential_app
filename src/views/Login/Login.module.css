@@ -126,6 +126,10 @@
     align-items: center;
 }
 
+.buttonsDiv a{
+    width: 100%;
+}
+
 .loginButton {
     background-color: #5C2D91;
     color: white;
