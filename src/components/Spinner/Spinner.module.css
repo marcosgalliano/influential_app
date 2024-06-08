@@ -1,0 +1,13 @@
+.divContainerSpinner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divSpinnerHome {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
