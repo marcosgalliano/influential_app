@@ -47,7 +47,7 @@
 
 /* FORM */
 
-.contenedorInputsAndButtons{
+.contenedorInputsAndButtons {
     display: flex;
     flex-direction: column;
     gap: 35px;
@@ -99,11 +99,20 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 30%;
+    width: auto;
 }
 
+
 .recordarmeDiv input {
+    margin: 0;
+    padding: 0;
     border-radius: 50%;
+}
+
+.recordarmeDiv label {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
 }
 
 /* BUTTONS */
@@ -163,7 +172,7 @@
 
 /* REGISTRO */
 
-.registroDiv{
+.registroDiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,22 +180,22 @@
     margin-top: auto;
 }
 
-.registroDiv h5{
+.registroDiv h5 {
     font-size: 16px;
 }
 
-.registroDiv a{
+.registroDiv a {
     text-decoration: none;
     color: black;
     font-size: 16px;
     font-weight: 600;
 }
 
-.derechos{
+.derechos {
     position: absolute;
     top: 100%;
 }
 
-.derechos h6{
+.derechos h6 {
     color: rgba(0, 0, 0, 0.507);
 }
