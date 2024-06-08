@@ -1,11 +1,44 @@
-.navBar{
+.navBar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 10px 5px;
 }
 
-.navBar img{
-    width: 30%;
+.navBar h1 {
+    font-size: 24px;
+    color: #5C2D91;
+}
+
+.navBar img {
+    width: 20%;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+
+.navBar ion-icon {
+    color: #5C2D91;
+    font-size: 49px;
+}
+
+.h1DivNavbar{
+    position: relative;
+}
+
+.h1DivNavbar ion-icon{
+    position: absolute;
+    right: -16%;
+    top: 15%;
+    font-size: 19px;
+}
+
+.h1DivNavbar::before{
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    top: 85%;
+    left: 0;
+    background-color: #5C2D91;
+    border-radius: 16px;
 }
