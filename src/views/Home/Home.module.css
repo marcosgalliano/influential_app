@@ -1,9 +1,11 @@
 .homeDiv{
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px;
+    padding: 20px 10px;
 }
 
 .containercards{
@@ -11,5 +13,37 @@
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    padding: 0px 10px;
+}
+
+/* FILTROS */
+
+.filtrosDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filtrosDiv ion-icon{
+    font-size: 25px;
+}
+
+.filtrosDiv input{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 8px;
+    padding: 5px 20px 5px 30px;
+    outline: none;
+}
+
+.inputFilterDiv{
+    position: relative;
+}
+
+.inputFilterDiv ion-icon{
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    font-size: 20px;
+    color: #5C2D91;
 }

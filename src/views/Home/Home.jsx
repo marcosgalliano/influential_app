@@ -64,6 +64,13 @@ const Home = () => {
 
   return (
     <div className={style.homeDiv}>
+      <div className={style.filtrosDiv}>
+        <div className={style.inputFilterDiv}>
+          <input type="text" placeholder="Encuentra tu influencer" />
+          <ion-icon name="search"></ion-icon>
+        </div>
+        <ion-icon name="filter"></ion-icon>
+      </div>
       <div className={style.containercards}>
         {users.map((user) => (
           <Card key={user.id} {...user} />
