@@ -70,6 +70,9 @@ const Login = () => {
           <a href="%">Get started</a>
         </div>
       </div>
+      <div className={style.derechos}>
+        <h6>© 2024 Influential. Todos los derechos reservados.</h6>
+      </div>
     </div>
   );
 };
