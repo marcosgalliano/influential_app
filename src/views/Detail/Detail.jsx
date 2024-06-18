@@ -1,12 +1,13 @@
-import style from "./Home.module.css";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import Spinner from "../../components/Spinner/Spinner";
-import Card from "../../components/Card/Card";
+import style from "./Detail.module.css";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import backImage from "../../assets/background.png";
 
-const Home = () => {
+const Detail = () => {
+  const params = useParams();
+  const id = parseInt(params.id);
+  const [user, setUser] = useState(null);
+
   const users = [
     {
       id: 2,
@@ -62,22 +63,44 @@ const Home = () => {
     },
   ];
 
-  return (
-    <div className={style.homeDiv}>
-      <div className={style.filtrosDiv}>
-        <div className={style.inputFilterDiv}>
-          <input type="text" placeholder="Encuentra tu influencer" />
-          <ion-icon name="search"></ion-icon>
+  const foundUser = users.find((us) => us.id === id);
+
+  useEffect(() => {
+    setUser(foundUser);
+  }, [foundUser]);
+
+  return user ? (
+    <div className={style.DetailDivContainer}>
+      <div className={style.headerDivDet}>
+        <div className={style.backgroundAndPorfile}>
+          <img src={backImage} alt="background" />
+          <img src={user.image} alt="profile" />
         </div>
-        <ion-icon name="filter"></ion-icon>
-      </div>
-      <div className={style.containercards}>
-        {users.map((user) => (
-          <Card key={user.id} {...user} />
-        ))}
+        <div className={style.contactAndName}>
+          <h5>@{user.handle}</h5>
+          <button>Contactar</button>
+        </div>
+        <div className={style.divDescripcionAndInfo}>
+          <h2>{user.name}</h2>
+          <h6>{user.description}</h6>
+          <div className={style.followersDiv}>
+            <div className={style.socialMedia}>
+              <ion-icon name="compass-outline"></ion-icon> {user.location}
+            </div>
+            <div className={style.socialMedia}>
+              <ion-icon name="logo-instagram"></ion-icon> 22K
+            </div>
+            <div className={style.socialMedia}>
+              <ion-icon name="logo-tiktok"></ion-icon> 104K
+            </div>
+          </div>
+          <div className={style.rating}>{"★".repeat(user.rating)}</div>
+        </div>
       </div>
     </div>
+  ) : (
+    <p>Loading...</p>
   );
 };
 
-export default Home;
+export default Detail;

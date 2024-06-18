@@ -27,7 +27,9 @@ const Card = (props) => {
   return (
     <div className={style.card}>
       <div className={style.imageContainer}>
-        <img src={image} alt={`${name}`} className={style.profileImage} />
+        <Link to={`/Detail/${id}`}>
+          <img src={image} alt={`${name}`} className={style.profileImage} />
+        </Link>
         <div
           onClick={handleLike}
           className={liked ? style.likedDiv : style.notLiked}

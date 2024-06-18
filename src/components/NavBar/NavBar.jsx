@@ -7,7 +7,9 @@ import logo from "../../assets/logo_influential.png";
 const NavBar = () => {
   return (
     <div className={style.navBar}>
+      <Link to="/Inicio">
       <img src={logo} alt="logo" />
+      </Link>
       <div className={style.h1DivNavbar}>
         <h1>Influencers</h1>
         <ion-icon name="caret-down-outline"></ion-icon>

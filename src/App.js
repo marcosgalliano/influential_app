@@ -5,6 +5,7 @@ import "./App.css";
 import Login from "./views/Login/Login";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./views/Home/Home";
+import Detail from "./views/Detail/Detail";
 
 // UTILS
 
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/Inicio" element={<Home />} />
+        <Route path="/Detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );
