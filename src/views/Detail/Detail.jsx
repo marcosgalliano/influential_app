@@ -2,11 +2,28 @@ import style from "./Detail.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import backImage from "../../assets/background.png";
+import * as React from "react";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import GroupsIcon from "@mui/icons-material/Groups";
+import CollectionsIcon from "@mui/icons-material/Collections";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+
+import galeria from "../../assets/galeria.png";
+import estadisticas from "../../assets/estadisticas.png";
+import opiniones from "../../assets/opiniones.png";
+import colabs from "../../assets/colabs.png";
 
 const Detail = () => {
   const params = useParams();
   const id = parseInt(params.id);
   const [user, setUser] = useState(null);
+  const [value, setValue] = useState("Calificaciones");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const users = [
     {
@@ -69,6 +86,21 @@ const Detail = () => {
     setUser(foundUser);
   }, [foundUser]);
 
+  const getImageSrc = () => {
+    switch (value) {
+      case "Calificaciones":
+        return opiniones;
+      case "Colaboraciones":
+        return colabs;
+      case "Galería":
+        return galeria;
+      case "Estadísticas":
+        return estadisticas;
+      default:
+        return "";
+    }
+  };
+
   return user ? (
     <div className={style.DetailDivContainer}>
       <div className={style.headerDivDet}>
@@ -96,6 +128,33 @@ const Detail = () => {
           </div>
           <div className={style.rating}>{"★".repeat(user.rating)}</div>
         </div>
+      </div>
+      <div className={style.navBarDet}>
+        <BottomNavigation value={value} onChange={handleChange}>
+          <BottomNavigationAction
+            label="Calificaciones"
+            value="Calificaciones"
+            icon={<StarBorderIcon />}
+          />
+          <BottomNavigationAction
+            label="Colaboraciones"
+            value="Colaboraciones"
+            icon={<GroupsIcon />}
+          />
+          <BottomNavigationAction
+            label="Galería"
+            value="Galería"
+            icon={<CollectionsIcon />}
+          />
+          <BottomNavigationAction
+            label="Estadísticas"
+            value="Estadísticas"
+            icon={<QueryStatsIcon />}
+          />
+        </BottomNavigation>
+      </div>
+      <div className={style.divTestDisplays}>
+        <img src={getImageSrc()} alt={value} />
       </div>
     </div>
   ) : (

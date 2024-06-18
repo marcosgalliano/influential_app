@@ -88,3 +88,21 @@
 .divFollowersAndCategories ion-icon {
     color: black;
 }
+
+
+/* NAVIGATION */
+
+.navBarDet{
+    width: 100%;
+}
+
+.navBarDet div button{
+    color: #8470BB;
+}
+
+
+/* IMAGES */
+
+.divTestDisplays img{
+    width: 100%;
+}
